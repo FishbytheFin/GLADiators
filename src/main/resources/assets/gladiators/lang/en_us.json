@@ -1,0 +1,19 @@
+{
+  "itemGroup.melee_tab": "Gladiator's melee",
+  "itemGroup.ranged_tab": "Gladiator's ranged",
+  "itemGroup.support_tab": "Gladiator's support",
+  "item.gladiators.hiltless_horror": "Hiltless Horror",
+  "item.gladiators.toy_hammer": "Toy Hammer",
+  "item.gladiators.bloblobber": "Bloblobber",
+  "item.gladiators.gay_ray": "Gay Ray",
+  "item.gladiators.infinite_pizza": "Infinite Pizza",
+  "tooltips.gladiators.hiltless_horror": "This powerful blade is just that: a blade! With no hilt, this sword hurts its wielder almost as much as its target!",
+  "tooltips.gladiators.toy_hammer": "Squeak! Squeak!",
+  "tooltips.gladiators.infinite_pizza": "Infinite Pizza! Yummy! Too bad it has pineapples in it...",
+  "rarities.gladiators.radical": "RADICAL",
+  "rarities.gladiators.tight": "TIGHT",
+  "rarities.gladiators.mid": "MID",
+  "rarities.gladiators.cringe": "CRINGE",
+  "rarities.gladiators.dog_doodoo": "DOG DOODOO",
+  "sounds.gladiators.toy_hammer_squeak": "Squeak"
+}
