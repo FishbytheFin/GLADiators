@@ -3,6 +3,7 @@ package me.fishbythefin.gladiators.items.custom;
 import me.fishbythefin.gladiators.items.GladiatorsItemRarities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
@@ -18,8 +19,8 @@ public class InfinitePizzaItem extends Item {
                 .stacksTo(1)
                 .tab(CreativeModeTab.TAB_FOOD)
                 .food(new FoodProperties.Builder()
-                        .nutrition(5)
-                        .saturationMod(1.0f)
+                        .nutrition(8)
+                        .saturationMod(0.8f)
                         .build()));
     }
 
@@ -31,12 +32,14 @@ public class InfinitePizzaItem extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
         super.finishUsingItem(itemStack, level, livingEntity);
-        if (livingEntity instanceof Player) {
-            Player player = (Player) livingEntity;
-            if (!player.isCreative()) {
-                player.addItem(this.getDefaultInstance());
+        if (!level.isClientSide) { //Server level code
+            if (livingEntity instanceof Player) { //Food was eaten by a player
+                Player player = (Player) livingEntity;
+                if (!player.isCreative()) {
+                    player.addItem(this.getDefaultInstance()); //Makes sure the item is not removed from their inventory
+                }
+                player.getCooldowns().addCooldown(this, 200); //Adds a 10 sec. cooldown
             }
-            player.getCooldowns().addCooldown(this, 200);
         }
         return itemStack;
     }
