@@ -2,6 +2,7 @@ package me.fishbythefin.gladiators;
 
 import com.mojang.logging.LogUtils;
 import me.fishbythefin.gladiators.client.render.BlobRenderer;
+import me.fishbythefin.gladiators.networking.ModMessages;
 import me.fishbythefin.gladiators.util.RegistryHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -53,6 +54,7 @@ public class Gladiators {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+        ModMessages.register();
 
     }
 

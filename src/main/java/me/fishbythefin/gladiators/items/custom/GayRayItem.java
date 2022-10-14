@@ -1,5 +1,6 @@
 package me.fishbythefin.gladiators.items.custom;
 
+import me.fishbythefin.gladiators.gay.PlayerGayTimerProvider;
 import me.fishbythefin.gladiators.items.GladiatorsItemRarities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -27,15 +28,20 @@ public class GayRayItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
 
         if (!level.isClientSide() && interactionHand.equals(InteractionHand.MAIN_HAND)) {
-            Vec3 startingLocation = player.getEyePosition();
-            Vec3 addition = player.getLookAngle().multiply(15.0d, 15.0d, 15.0d);
-            EntityHitResult hitResult = ProjectileUtil.getEntityHitResult(level, player, startingLocation, startingLocation.add(addition), player.getBoundingBox().expandTowards(player.getDeltaMovement()).inflate(15.0d), (val) -> true);
-            if (hitResult != null && hitResult.getEntity() instanceof Player) {
-                Player gayPlayer = (Player) hitResult.getEntity();
-                hitResult.getEntity().setDeltaMovement(player.getLookAngle().multiply(10.0d, 10.0d, 10.0d));
-            }
 
-            player.getCooldowns().addCooldown(this, 20);
+            Vec3 startingLocation = player.getEyePosition(); //Start of view vector
+            Vec3 addition = player.getLookAngle().multiply(15.0d, 15.0d, 15.0d); //Vector to add
+            //Returns the hitResult of the enemy the player is looking at(can be a null entity)
+            EntityHitResult hitResult = ProjectileUtil.getEntityHitResult(level, player, startingLocation, startingLocation.add(addition), player.getBoundingBox().expandTowards(player.getDeltaMovement()).inflate(15.0d), (val) -> true);
+
+            if (hitResult != null && hitResult.getEntity() instanceof Player) { //Checks if the player is looking at another player
+                //WILL MAKE THE PLAYER SEE RAINBOWS N' STUFF. NOT CURRENTLY WORKING!
+                Player gayPlayer = (Player) hitResult.getEntity();
+                gayPlayer.getCapability(PlayerGayTimerProvider.PLAYER_GAY_TIMER).ifPresent(playerGayTimer -> {
+                    playerGayTimer.addGayTime(200L);
+                });            }
+
+            player.getCooldowns().addCooldown(this, 20); //Adds a cooldown
         }
         return super.use(level, player, interactionHand);
     }
