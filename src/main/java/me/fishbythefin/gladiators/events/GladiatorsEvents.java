@@ -7,7 +7,9 @@ import me.fishbythefin.gladiators.gay.PlayerGayTimer;
 import me.fishbythefin.gladiators.gay.PlayerGayTimerProvider;
 import me.fishbythefin.gladiators.networking.ModMessages;
 import me.fishbythefin.gladiators.networking.packets.GayRayDataSyncS2CPacket;
+import me.fishbythefin.gladiators.particles.custom.RainbowParticles;
 import me.fishbythefin.gladiators.util.RegistryHandler;
+import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
@@ -16,6 +18,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
@@ -109,6 +112,11 @@ public class GladiatorsEvents {
         public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
             //Registers the gay ray overlay
             event.registerAboveAll("gay_ray", GayRayHudOverlay.HUD_GAY_RAY);
+        }
+        @SubscribeEvent
+        public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
+            //Registers the rainbow particle
+            Minecraft.getInstance().particleEngine.register(RegistryHandler.RAINBOW_PARTICLE.get(), RainbowParticles.Provider::new);
         }
     }
 }

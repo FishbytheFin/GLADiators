@@ -3,6 +3,9 @@ package me.fishbythefin.gladiators.util;
 import me.fishbythefin.gladiators.Gladiators;
 import me.fishbythefin.gladiators.entities.BlobEntity;
 import me.fishbythefin.gladiators.items.custom.*;
+import me.fishbythefin.gladiators.particles.custom.RainbowParticles;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -18,6 +21,7 @@ public class RegistryHandler {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Gladiators.MODID);
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Gladiators.MODID);
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Gladiators.MODID);
+    public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, Gladiators.MODID);
     //public static DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Gladiators.MODID);
 
     //Initializes all the deferred registries. IMPORTANT! Update every time you add a deferred registry.
@@ -26,6 +30,7 @@ public class RegistryHandler {
         //BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
         SOUND_EVENTS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        PARTICLE_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
@@ -57,6 +62,9 @@ public class RegistryHandler {
 
     //SOUNDS:
     public static final RegistryObject<SoundEvent> TOY_HAMMER_SQUEAK = registerSoundEvent("toy_hammer_squeak");
+
+    //PARTICLES:
+    public static final RegistryObject<SimpleParticleType> RAINBOW_PARTICLE = PARTICLE_TYPES.register("rainbow_particles", () -> new SimpleParticleType(true));
 
 
 }
