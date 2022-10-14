@@ -48,8 +48,8 @@ public class GayRayItem extends Item {
                     gayPlayer.getCapability(PlayerGayTimerProvider.PLAYER_GAY_TIMER).ifPresent(playerGayTimer -> {
                         playerGayTimer.addGayTime(200L);
                     });
-                    player.getCooldowns().addCooldown(this, 250); //Adds a cooldown of 12.5 seconds for hitting the target
                 }
+                player.getCooldowns().addCooldown(this, 250); //Adds a cooldown of 12.5 seconds for hitting the target
             } else {
                 player.getCooldowns().addCooldown(this, 400); //Adds a cooldown of 20 seconds for missing
             }

@@ -6,6 +6,7 @@ import me.fishbythefin.gladiators.networking.ModMessages;
 import me.fishbythefin.gladiators.util.RegistryHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -22,6 +23,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
+import software.bernie.geckolib3.file.GeoModelLoader;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Gladiators.MODID)
