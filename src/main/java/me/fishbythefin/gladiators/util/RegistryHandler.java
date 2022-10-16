@@ -47,6 +47,7 @@ public class RegistryHandler {
 
     //Support
     public static final RegistryObject<Item> GAY_RAY = ITEMS.register("gay_ray", GayRayItem::new);
+    public static final RegistryObject<Item> SACRIFICIAL_LAMB = ITEMS.register("sacrificial_lamb", SacrificialLambItem::new);
 
     //Armor
 

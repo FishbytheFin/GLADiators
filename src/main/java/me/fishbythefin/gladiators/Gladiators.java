@@ -106,12 +106,13 @@ public class Gladiators {
     public static final CreativeModeTab SUPPORT_TAB = new CreativeModeTab("support_tab") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(Items.GOLDEN_APPLE.asItem());
+            return new ItemStack(RegistryHandler.SACRIFICIAL_LAMB.get());
         }
         @Override
         public void fillItemList(NonNullList<ItemStack> items) {
             //Puts the items in the creative tab in a specified order
             items.add(new ItemStack(RegistryHandler.GAY_RAY.get()));
+            items.add(new ItemStack(RegistryHandler.SACRIFICIAL_LAMB.get()));
             super.fillItemList(items);
         }
     };
