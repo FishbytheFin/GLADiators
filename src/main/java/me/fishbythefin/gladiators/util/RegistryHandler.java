@@ -3,7 +3,6 @@ package me.fishbythefin.gladiators.util;
 import me.fishbythefin.gladiators.Gladiators;
 import me.fishbythefin.gladiators.entities.BlobEntity;
 import me.fishbythefin.gladiators.items.custom.*;
-import me.fishbythefin.gladiators.particles.custom.RainbowParticles;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
@@ -44,6 +43,7 @@ public class RegistryHandler {
 
     //Ranged
     public static final RegistryObject<Item> BLOBLOBBER = ITEMS.register("bloblobber", BloblobberItem::new);
+    public static final RegistryObject<Item> BRICKMERANG = ITEMS.register("brickmerang", BrickmerangItem::new);
 
     //Support
     public static final RegistryObject<Item> GAY_RAY = ITEMS.register("gay_ray", GayRayItem::new);
