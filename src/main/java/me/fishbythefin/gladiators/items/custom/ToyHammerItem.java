@@ -1,9 +1,13 @@
 package me.fishbythefin.gladiators.items.custom;
 
 import me.fishbythefin.gladiators.items.GladiatorsItemRarities;
+import me.fishbythefin.gladiators.util.RegistryHandler;
 import me.fishbythefin.gladiators.weapons.GladiatorsItemTier;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;

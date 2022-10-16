@@ -4,8 +4,6 @@ import me.fishbythefin.gladiators.gay.PlayerGayTimerProvider;
 import me.fishbythefin.gladiators.items.GladiatorsItemRarities;
 import me.fishbythefin.gladiators.util.RegistryHandler;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;

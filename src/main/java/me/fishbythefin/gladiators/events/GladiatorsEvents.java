@@ -41,8 +41,6 @@ public class GladiatorsEvents {
             if (event.getSource().getEntity() instanceof Player player) { //Attacker is player
                 //Player is holding the toy hammer
                 if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem().equals(RegistryHandler.TOY_HAMMER.get())) { event.getEntity().level.playSound(player, player.blockPosition(), RegistryHandler.TOY_HAMMER_SQUEAK.get(), SoundSource.PLAYERS, 1f, 1f);}
-                //Player is holding the hiltless horror
-                else if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem().equals(RegistryHandler.HILTLESS_HORROR.get())) { player.hurt(DamageSource.GENERIC, 1.0f); }
 
             }
         }
