@@ -23,6 +23,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
@@ -42,6 +43,20 @@ import net.minecraftforge.fml.common.Mod;
 public class GladiatorsEvents {
     @Mod.EventBusSubscriber(modid = Gladiators.MODID)
     public static class ForgeEvents {
+
+        @SubscribeEvent
+        public static void onItemPickup(PlayerEvent.ItemPickupEvent event) {
+            if (!event.getEntity().level.isClientSide) {
+                    int locLower = event.getEntity().getInventory().findSlotMatchingItem(new ItemStack(RegistryHandler.LOWER_HALF_BRICKMERANG.get()));
+                    int locUpper = event.getEntity().getInventory().findSlotMatchingItem(new ItemStack(RegistryHandler.UPPER_HALF_BRICKMERANG.get()));
+                    if (locLower >= 0 && locUpper >= 0) {
+                        event.getEntity().getInventory().getItem(locLower).shrink(1);
+                        event.getEntity().getInventory().getItem(locUpper).shrink(1);
+                        event.getEntity().addItem(new ItemStack(RegistryHandler.BRICKMERANG.get()));
+                        event.getEntity().getCooldowns().addCooldown(RegistryHandler.BRICKMERANG.get(), 100);
+                    }
+            }
+        }
 
         //An event fired when and entity attacks another entity
         @SubscribeEvent

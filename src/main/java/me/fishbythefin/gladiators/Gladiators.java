@@ -2,10 +2,12 @@ package me.fishbythefin.gladiators;
 
 import com.mojang.logging.LogUtils;
 import me.fishbythefin.gladiators.client.render.BlobRenderer;
+import me.fishbythefin.gladiators.entities.BrickmerangEntity;
 import me.fishbythefin.gladiators.networking.ModMessages;
 import me.fishbythefin.gladiators.util.RegistryHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -74,6 +76,7 @@ public class Gladiators {
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
             EntityRenderers.register(RegistryHandler.BLOB.get(), BlobRenderer::new);
+            EntityRenderers.register(RegistryHandler.BRICKMERANG_ENTITY.get(), ThrownItemRenderer::new);
         }
     }
 

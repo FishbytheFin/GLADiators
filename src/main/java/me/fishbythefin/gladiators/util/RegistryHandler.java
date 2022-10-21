@@ -2,6 +2,8 @@ package me.fishbythefin.gladiators.util;
 
 import me.fishbythefin.gladiators.Gladiators;
 import me.fishbythefin.gladiators.entities.BlobEntity;
+import me.fishbythefin.gladiators.entities.BrickmerangEntity;
+import me.fishbythefin.gladiators.items.ItemBase;
 import me.fishbythefin.gladiators.items.custom.*;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -11,6 +13,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -52,7 +55,9 @@ public class RegistryHandler {
     //Armor
 
     //Other
-    public  static final RegistryObject<Item> INFINITE_PIZZA = ITEMS.register("infinite_pizza", InfinitePizzaItem::new);
+    public static final RegistryObject<Item> INFINITE_PIZZA = ITEMS.register("infinite_pizza", InfinitePizzaItem::new);
+    public static final RegistryObject<Item> UPPER_HALF_BRICKMERANG = ITEMS.register("upper_half_brickmerang", ItemBase::new);
+    public static final RegistryObject<Item> LOWER_HALF_BRICKMERANG = ITEMS.register("lower_half_brickmerang", ItemBase::new);
 
     //ENTITIES:
     //Projectiles
@@ -60,6 +65,11 @@ public class RegistryHandler {
             EntityType.Builder.of(BlobEntity::new, MobCategory.MISC)
                     .sized(0.5f, 0.5f)
                     .build(new ResourceLocation(Gladiators.MODID, "blob").toString()));
+
+    public static final RegistryObject<EntityType<BrickmerangEntity>> BRICKMERANG_ENTITY = ENTITIES.register("brickmerang_entity", () ->
+            EntityType.Builder.of(BrickmerangEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f)
+                    .build(new ResourceLocation(Gladiators.MODID, "brickmerang_entity").toString()));
 
     //SOUNDS:
     public static final RegistryObject<SoundEvent> TOY_HAMMER_SQUEAK = registerSoundEvent("toy_hammer_squeak");

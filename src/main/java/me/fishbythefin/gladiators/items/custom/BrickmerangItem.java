@@ -1,6 +1,8 @@
 package me.fishbythefin.gladiators.items.custom;
 
+import me.fishbythefin.gladiators.entities.BrickmerangEntity;
 import me.fishbythefin.gladiators.items.GladiatorsItemRarities;
+import me.fishbythefin.gladiators.util.RegistryHandler;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -23,8 +25,12 @@ public class BrickmerangItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         if (!level.isClientSide && interactionHand.equals(InteractionHand.MAIN_HAND)) {
-            player.sendSystemMessage(Component.literal("Sussy").withStyle(ChatFormatting.YELLOW));
-            //player.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(this.asItem()));
+            player.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(RegistryHandler.LOWER_HALF_BRICKMERANG.get()));
+            BrickmerangEntity brickmerangEntity = new BrickmerangEntity(RegistryHandler.BRICKMERANG_ENTITY.get(), level);
+            brickmerangEntity.setOwner(player);
+            brickmerangEntity.setDeltaMovement(player.getLookAngle().multiply(2.0d, 2.0d, 2.0d));
+            brickmerangEntity.setPos(player.getEyePosition());
+            level.addFreshEntity(brickmerangEntity);
         }
         return super.use(level, player, interactionHand);
     }

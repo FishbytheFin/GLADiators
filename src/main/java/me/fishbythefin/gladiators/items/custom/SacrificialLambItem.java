@@ -43,7 +43,7 @@ public class SacrificialLambItem extends Item {
                     playerSacrificialLamb.setLambUUID(sheep.getUUID()); //Sets new uuid for the player
                     serverLevel.addFreshEntity(sheep);//Puts the lamb in the world
 
-                    player.getCooldowns().addCooldown(this, 400);
+                    player.getCooldowns().addCooldown(this, 400);//Adds a 20-second cooldown
                 }
             });
         }
