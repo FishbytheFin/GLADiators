@@ -33,8 +33,7 @@ public class BrickmerangEntity extends ThrowableItemProjectile {
             if (this.getOwner() instanceof Player player) {
                 int locLower = player.getInventory().findSlotMatchingItem(new ItemStack(RegistryHandler.LOWER_HALF_BRICKMERANG.get()));
                 if (locLower >= 0) {
-                    player.getInventory().getItem(locLower).shrink(1);
-                    player.addItem(new ItemStack(RegistryHandler.BRICKMERANG.get()));
+                    player.getInventory().setItem(locLower, new ItemStack(RegistryHandler.BRICKMERANG.get()));
                     player.getCooldowns().addCooldown(RegistryHandler.BRICKMERANG.get(), 100);
                 } else {
                     player.addItem(new ItemStack(RegistryHandler.UPPER_HALF_BRICKMERANG.get()));
@@ -58,9 +57,10 @@ public class BrickmerangEntity extends ThrowableItemProjectile {
         this.isComingBack = true;
         this.ticksLeft = 4;
         Vec3 comeBackToLocation = entity.getEyePosition();
-        this.setDeltaMovement(new Vec3(comeBackToLocation.x-this.position().x, comeBackToLocation.y-this.position().y, comeBackToLocation.z-this.position().z).multiply(0.25d, 0.25d, 0.25d));
+        this.setNoGravity(true);
+        this.setDeltaMovement(new Vec3(comeBackToLocation.x - this.position().x, comeBackToLocation.y - this.position().y, comeBackToLocation.z - this.position().z).multiply(0.25d, 0.25d, 0.25d));
         if (entity instanceof LivingEntity) {
-            hitResult.getEntity().hurt(DamageSource.indirectMobAttack(this, (LivingEntity)entity).setProjectile(), 10.0F);
+            hitResult.getEntity().hurt(DamageSource.indirectMobAttack(this, (LivingEntity) entity).setProjectile(), 10.0F);
         }
 
     }
@@ -77,7 +77,12 @@ public class BrickmerangEntity extends ThrowableItemProjectile {
 
     @Override
     protected Item getDefaultItem() {
-        return RegistryHandler.UPPER_HALF_BRICKMERANG.get();
+        return RegistryHandler.BRICKMERANG_PROJECTILE_ITEM.get();
+    }
+
+    @Override
+    protected float getGravity() {
+        return 0.1f;
     }
 
     @Override

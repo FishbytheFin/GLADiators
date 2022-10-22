@@ -26,10 +26,10 @@ public class BrickmerangItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         if (!level.isClientSide && interactionHand.equals(InteractionHand.MAIN_HAND)) {
             player.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(RegistryHandler.LOWER_HALF_BRICKMERANG.get()));
-            BrickmerangEntity brickmerangEntity = new BrickmerangEntity(RegistryHandler.BRICKMERANG_ENTITY.get(), level);
-            brickmerangEntity.setOwner(player);
-            brickmerangEntity.setDeltaMovement(player.getLookAngle().multiply(2.0d, 2.0d, 2.0d));
-            brickmerangEntity.setPos(player.getEyePosition());
+            BrickmerangEntity brickmerangEntity = new BrickmerangEntity(RegistryHandler.BRICKMERANG_ENTITY.get(), level);//Creates a new brickmerang entity
+            brickmerangEntity.setOwner(player);//Owner = thrower
+            brickmerangEntity.setDeltaMovement(player.getLookAngle().multiply(2.0d, 2.0d, 2.0d));//Brickmerang velocity
+            brickmerangEntity.setPos(player.getEyePosition());//Starting position
             level.addFreshEntity(brickmerangEntity);
         }
         return super.use(level, player, interactionHand);

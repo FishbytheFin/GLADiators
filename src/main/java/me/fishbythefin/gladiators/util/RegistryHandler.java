@@ -13,7 +13,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,7 +26,7 @@ public class RegistryHandler {
     //public static DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Gladiators.MODID);
 
     //Initializes all the deferred registries. IMPORTANT! Update every time you add a deferred registry.
-    public static void init(){
+    public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         //BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -56,6 +55,7 @@ public class RegistryHandler {
 
     //Other
     public static final RegistryObject<Item> INFINITE_PIZZA = ITEMS.register("infinite_pizza", InfinitePizzaItem::new);
+    public static final RegistryObject<Item> BRICKMERANG_PROJECTILE_ITEM = ITEMS.register("brickmerang_projectile_item", ItemBase::new);
     public static final RegistryObject<Item> UPPER_HALF_BRICKMERANG = ITEMS.register("upper_half_brickmerang", ItemBase::new);
     public static final RegistryObject<Item> LOWER_HALF_BRICKMERANG = ITEMS.register("lower_half_brickmerang", ItemBase::new);
 

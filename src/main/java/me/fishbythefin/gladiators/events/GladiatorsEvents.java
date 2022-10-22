@@ -47,14 +47,21 @@ public class GladiatorsEvents {
         @SubscribeEvent
         public static void onItemPickup(PlayerEvent.ItemPickupEvent event) {
             if (!event.getEntity().level.isClientSide) {
-                    int locLower = event.getEntity().getInventory().findSlotMatchingItem(new ItemStack(RegistryHandler.LOWER_HALF_BRICKMERANG.get()));
-                    int locUpper = event.getEntity().getInventory().findSlotMatchingItem(new ItemStack(RegistryHandler.UPPER_HALF_BRICKMERANG.get()));
-                    if (locLower >= 0 && locUpper >= 0) {
-                        event.getEntity().getInventory().getItem(locLower).shrink(1);
+                //Combines both halves of the brickmerang:
+                //Inventory slot number of the lower half of the brickmerang (-1 if not present)
+                int locLower = event.getEntity().getInventory().findSlotMatchingItem(new ItemStack(RegistryHandler.LOWER_HALF_BRICKMERANG.get()));
+                //Inventory slot number of the upper half of the brickmerang (-1 if not present)
+                int locUpper = event.getEntity().getInventory().findSlotMatchingItem(new ItemStack(RegistryHandler.UPPER_HALF_BRICKMERANG.get()));
+                if (locLower >= 0 && locUpper >= 0) {
+                    if (event.getStack().sameItem(new ItemStack(RegistryHandler.UPPER_HALF_BRICKMERANG.get()))) {
                         event.getEntity().getInventory().getItem(locUpper).shrink(1);
-                        event.getEntity().addItem(new ItemStack(RegistryHandler.BRICKMERANG.get()));
-                        event.getEntity().getCooldowns().addCooldown(RegistryHandler.BRICKMERANG.get(), 100);
+                        event.getEntity().getInventory().setItem(locLower, new ItemStack(RegistryHandler.BRICKMERANG.get()));
+                    } else {
+                        event.getEntity().getInventory().getItem(locLower).shrink(1);
+                        event.getEntity().getInventory().setItem(locUpper, new ItemStack(RegistryHandler.BRICKMERANG.get()));
                     }
+                    event.getEntity().getCooldowns().addCooldown(RegistryHandler.BRICKMERANG.get(), 100);
+                }
             }
         }
 
