@@ -2,7 +2,6 @@ package me.fishbythefin.gladiators.events;
 
 import me.fishbythefin.gladiators.Gladiators;
 import me.fishbythefin.gladiators.client.GayRayHudOverlay;
-import me.fishbythefin.gladiators.entities.BlobEntity;
 import me.fishbythefin.gladiators.gay.PlayerGayTimer;
 import me.fishbythefin.gladiators.gay.PlayerGayTimerProvider;
 import me.fishbythefin.gladiators.lamb.PlayerSacrificialLamb;
@@ -29,7 +28,6 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -173,11 +171,6 @@ public class GladiatorsEvents {
 
     @Mod.EventBusSubscriber(modid = Gladiators.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ModEventBusEvents {
-        @SubscribeEvent
-        public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
-            //Initializes the blob mob
-            event.put(RegistryHandler.BLOB.get(), BlobEntity.setAttributes());
-        }
 
         @SubscribeEvent
         public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {

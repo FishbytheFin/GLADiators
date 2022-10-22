@@ -1,8 +1,6 @@
 package me.fishbythefin.gladiators;
 
 import com.mojang.logging.LogUtils;
-import me.fishbythefin.gladiators.client.render.BlobRenderer;
-import me.fishbythefin.gladiators.entities.BrickmerangEntity;
 import me.fishbythefin.gladiators.networking.ModMessages;
 import me.fishbythefin.gladiators.util.RegistryHandler;
 import net.minecraft.client.Minecraft;
@@ -11,7 +9,6 @@ import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -23,7 +20,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
-import software.bernie.geckolib3.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Gladiators.MODID)
@@ -43,9 +39,6 @@ public class Gladiators {
 
         //Initializes the registry handler(A class that registers items/blocks)
         RegistryHandler.init();
-
-        //Initializes Geckolib(A library for mob animations)
-        GeckoLib.initialize();
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -75,7 +68,7 @@ public class Gladiators {
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-            EntityRenderers.register(RegistryHandler.BLOB.get(), BlobRenderer::new);
+            EntityRenderers.register(RegistryHandler.BLOB.get(), ThrownItemRenderer::new);
             EntityRenderers.register(RegistryHandler.BRICKMERANG_ENTITY.get(), ThrownItemRenderer::new);
         }
     }

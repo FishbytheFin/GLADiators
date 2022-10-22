@@ -1,6 +1,10 @@
 package me.fishbythefin.gladiators.entities;
 
 import me.fishbythefin.gladiators.util.RegistryHandler;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -11,6 +15,8 @@ import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -48,6 +54,7 @@ public class BrickmerangEntity extends ThrowableItemProjectile {
             ticksLeft--;
         }
 
+
     }
 
     @Override
@@ -69,8 +76,12 @@ public class BrickmerangEntity extends ThrowableItemProjectile {
     protected void onHitBlock(BlockHitResult hitResult) {
         super.onHitBlock(hitResult);
         if (!this.level.isClientSide) {
-            this.level.addFreshEntity(new ItemEntity(this.level, this.getX(), this.getY(), this.getZ(), new ItemStack(RegistryHandler.UPPER_HALF_BRICKMERANG.get())));
-            this.discard();
+            if (this.level.getBlockState(hitResult.getBlockPos()).getBlock().getName().toString().toUpperCase().contains("GLASS")) {
+                this.level.destroyBlock(hitResult.getBlockPos(), true);
+            } else {
+                this.level.addFreshEntity(new ItemEntity(this.level, this.getX(), this.getY(), this.getZ(), new ItemStack(RegistryHandler.UPPER_HALF_BRICKMERANG.get())));
+                this.discard();
+            }
         }
 
     }
@@ -85,8 +96,8 @@ public class BrickmerangEntity extends ThrowableItemProjectile {
         return 0.1f;
     }
 
-    @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-    }
+//    @Override
+//    protected void defineSynchedData() {
+//        super.defineSynchedData();
+//    }
 }

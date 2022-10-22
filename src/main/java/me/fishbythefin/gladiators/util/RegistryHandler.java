@@ -55,6 +55,7 @@ public class RegistryHandler {
 
     //Other
     public static final RegistryObject<Item> INFINITE_PIZZA = ITEMS.register("infinite_pizza", InfinitePizzaItem::new);
+    public static final RegistryObject<Item> BLOB_ITEM = ITEMS.register("blob_item", ItemBase::new);
     public static final RegistryObject<Item> BRICKMERANG_PROJECTILE_ITEM = ITEMS.register("brickmerang_projectile_item", ItemBase::new);
     public static final RegistryObject<Item> UPPER_HALF_BRICKMERANG = ITEMS.register("upper_half_brickmerang", ItemBase::new);
     public static final RegistryObject<Item> LOWER_HALF_BRICKMERANG = ITEMS.register("lower_half_brickmerang", ItemBase::new);
