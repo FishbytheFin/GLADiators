@@ -17,7 +17,7 @@ public class PlayerSacrificialLambProvider implements ICapabilityProvider, INBTS
     private PlayerSacrificialLamb lamb = null;
     private final LazyOptional<PlayerSacrificialLamb> optional = LazyOptional.of(this::createPlayerSacrificialLamb);
 
-    private PlayerSacrificialLamb createPlayerSacrificialLamb() {
+    private @NotNull PlayerSacrificialLamb createPlayerSacrificialLamb() {
         if (this.lamb == null) {
             this.lamb = new PlayerSacrificialLamb();
         }

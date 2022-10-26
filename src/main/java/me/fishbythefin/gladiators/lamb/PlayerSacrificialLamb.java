@@ -5,7 +5,7 @@ import net.minecraft.nbt.CompoundTag;
 import java.util.UUID;
 
 public class PlayerSacrificialLamb {
-    private UUID lambUUID;
+    private UUID lambUUID = UUID.randomUUID();
 
 
     public UUID getLambUUID() {
@@ -20,10 +20,19 @@ public class PlayerSacrificialLamb {
     }
 
     public void saveNBTData(CompoundTag tag) {
-        tag.putUUID("lambUUID", this.lambUUID);
+        if (this.lambUUID != null) {
+            tag.putUUID("lambUUID", this.lambUUID);
+        } else {
+            tag.putUUID("lambUUID", UUID.randomUUID());
+        }
     }
 
     public void loadNBTData(CompoundTag nbt) {
-        this.lambUUID = nbt.getUUID("lambUUID");
+        try {
+            this.lambUUID = nbt.getUUID("lambUUID");
+        }
+        catch (Exception e) {
+            this.lambUUID = UUID.randomUUID();
+        }
     }
 }

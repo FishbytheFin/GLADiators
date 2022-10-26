@@ -2,26 +2,39 @@
   "itemGroup.melee_tab": "Gladiator's melee",
   "itemGroup.ranged_tab": "Gladiator's ranged",
   "itemGroup.support_tab": "Gladiator's support",
+
   "item.gladiators.hiltless_horror": "Hiltless Horror",
   "item.gladiators.toy_hammer": "Toy Hammer",
+  "item.gladiators.spray_n_pray": "Spray N' Pray",
+
   "item.gladiators.bloblobber": "Bloblobber",
   "item.gladiators.brickmerang": "Brickmerang",
   "item.gladiators.upper_half_brickmerang": "Brickmerang-ish",
   "item.gladiators.lower_half_brickmerang": "Brickmerang-ish",
+
   "item.gladiators.gay_ray": "Gay Ray",
   "item.gladiators.sacrificial_lamb": "Sacrificial Lamb",
   "item.gladiators.infinite_pizza": "Infinite Pizza",
+
   "tooltips.gladiators.hiltless_horror": "This powerful blade is just that: a blade! With no hilt, this sword hurts its wielder almost as much as its target!",
   "tooltips.gladiators.toy_hammer": "Squeak! Squeak!",
+  "tooltips.gladiators.spray_n_pray": "Spray your enemy with, ummm something..., to damn them. Deals 2x damage to damned mobs.",
+
   "tooltips.gladiators.brickmerang": "Brick, Brick, Brick, Brick! It's Fun.",
   "tooltips.gladiators.bloblobber": "idk what to put here yet",
+
   "tooltips.gladiators.gay_ray": "Shoot at an enemy to make them gay (Very distracting).",
   "tooltips.gladiators.sacrificial_lamb": "Summons a lamb to take damage for you. Yes, it is a metaphor for capitalism.",
+
   "tooltips.gladiators.infinite_pizza": "Infinite Pizza! Yummy! Too bad it has pineapples in it...",
+
   "rarities.gladiators.radical": "RADICAL",
   "rarities.gladiators.tight": "TIGHT",
   "rarities.gladiators.mid": "MID",
   "rarities.gladiators.meh": "MEH",
   "rarities.gladiators.dog_doodoo": "DOG DOODOO",
+
+  "effect.gladiators.damned_effect": "Damned",
+
   "sounds.gladiators.toy_hammer_squeak": "Squeak"
 }

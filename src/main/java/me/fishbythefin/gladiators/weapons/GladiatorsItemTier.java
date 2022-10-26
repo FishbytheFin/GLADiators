@@ -14,7 +14,9 @@ public enum GladiatorsItemTier implements Tier {
     TOY_HAMMER(0, -1, 1.0F, -1.0F, 69, () ->
     {
         return Ingredient.of(RegistryHandler.TOY_HAMMER.get());
-    });
+    }),
+    SPRAY_N_PRAY(0, -1, 1.0f, -1.0f, 420, () ->
+    {return Ingredient.of(RegistryHandler.SPRAY_N_PRAY.get());});
 
     private final int harvestLevel;
     private final int maxUses;

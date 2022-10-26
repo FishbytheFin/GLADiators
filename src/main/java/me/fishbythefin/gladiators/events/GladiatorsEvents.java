@@ -8,6 +8,7 @@ import me.fishbythefin.gladiators.lamb.PlayerSacrificialLamb;
 import me.fishbythefin.gladiators.lamb.PlayerSacrificialLambProvider;
 import me.fishbythefin.gladiators.networking.ModMessages;
 import me.fishbythefin.gladiators.networking.packets.GayRayDataSyncS2CPacket;
+import me.fishbythefin.gladiators.particles.custom.DamnedParticles;
 import me.fishbythefin.gladiators.particles.custom.RainbowParticles;
 import me.fishbythefin.gladiators.util.RegistryHandler;
 import net.minecraft.ChatFormatting;
@@ -16,8 +17,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Sheep;
@@ -67,9 +71,28 @@ public class GladiatorsEvents {
         @SubscribeEvent
         public static void onLivingAttack(LivingAttackEvent event) {
             if (event.getSource().getEntity() instanceof Player player) { //Attacker is player
-                //Player is holding the toy hammer
-                if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem().equals(RegistryHandler.TOY_HAMMER.get())) {
+
+                //Plays the squeak noise when using the toy hammer
+                if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem().equals(RegistryHandler.TOY_HAMMER.get())) {//Player is holding the toy hammer
+                    //Plays squeak noise
                     event.getEntity().level.playSound(player, player.blockPosition(), RegistryHandler.TOY_HAMMER_SQUEAK.get(), SoundSource.PLAYERS, 1f, 1f);
+                }
+
+                //Deals double damage to damned entities if they are using the spray n' pray
+                else if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem().equals(RegistryHandler.SPRAY_N_PRAY.get())) {//Player is holding the Spray N' Pray
+
+                        for (MobEffectInstance effect : event.getEntity().getActiveEffects()) {
+                            if (effect.getEffect().equals(RegistryHandler.DAMNED_EFFECT.get())) { //Hurt entity is damned
+                                if (!player.level.isClientSide) {
+                                    event.getEntity().hurt(DamageSource.GENERIC, event.getAmount() * 2);
+                                    event.getEntity().knockback(0.4d, player.getX() - event.getEntity().getX(), player.getZ() - event.getEntity().getZ());
+                                }
+                                //Plays noise from attack
+                                player.level.playSound(player, player.blockPosition(), SoundEvents.PLAYER_ATTACK_KNOCKBACK, SoundSource.PLAYERS, 1f, 1f);
+                                player.level.playSound(player, player.blockPosition(), SoundEvents.PLAYER_ATTACK_CRIT, SoundSource.PLAYERS, 1f, 1f);
+                                break;
+                        }
+                }
                 }
 
             }
@@ -182,6 +205,7 @@ public class GladiatorsEvents {
         public static void registerParticleFactories(final RegisterParticleProvidersEvent event) {
             //Registers the rainbow particle
             Minecraft.getInstance().particleEngine.register(RegistryHandler.RAINBOW_PARTICLE.get(), RainbowParticles.Provider::new);
+            Minecraft.getInstance().particleEngine.register(RegistryHandler.DAMNED_PARTICLE.get(), DamnedParticles.Provider::new);
         }
     }
 }

@@ -70,6 +70,8 @@ public class Gladiators {
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
             EntityRenderers.register(RegistryHandler.BLOB.get(), ThrownItemRenderer::new);
             EntityRenderers.register(RegistryHandler.BRICKMERANG_ENTITY.get(), ThrownItemRenderer::new);
+
+
         }
     }
 
@@ -83,6 +85,7 @@ public class Gladiators {
             //Puts the items in the creative tab in a specified order
             items.add(new ItemStack(RegistryHandler.HILTLESS_HORROR.get()));
             items.add(new ItemStack(RegistryHandler.TOY_HAMMER.get()));
+            items.add(new ItemStack(RegistryHandler.SPRAY_N_PRAY.get()));
             super.fillItemList(items);
         }
     };
