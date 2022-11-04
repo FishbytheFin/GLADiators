@@ -42,7 +42,13 @@ public class BrickmerangEntity extends ThrowableItemProjectile {
                     player.getInventory().setItem(locLower, new ItemStack(RegistryHandler.BRICKMERANG.get()));
                     player.getCooldowns().addCooldown(RegistryHandler.BRICKMERANG.get(), 100);
                 } else {
-                    player.addItem(new ItemStack(RegistryHandler.UPPER_HALF_BRICKMERANG.get()));
+                    if (player.getHealth() > 0) {
+                        //Gives the brickmerang half to an alive player
+                        player.addItem(new ItemStack(RegistryHandler.UPPER_HALF_BRICKMERANG.get()));
+                    } else {
+                        //Drops the top half brickmerang item if player is dead
+                        this.level.addFreshEntity(new ItemEntity(this.level, this.getX(), this.getY(), this.getZ(), new ItemStack(RegistryHandler.UPPER_HALF_BRICKMERANG.get())));
+                    }
                 }
             }
         } else {

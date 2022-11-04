@@ -49,6 +49,7 @@ public class RegistryHandler {
     public static final RegistryObject<SwordItem> HILTLESS_HORROR = ITEMS.register("hiltless_horror", HiltlessHorrorItem::new);
     public static final RegistryObject<AxeItem> TOY_HAMMER = ITEMS.register("toy_hammer", ToyHammerItem::new);
     public static final RegistryObject<PickaxeItem> SPRAY_N_PRAY = ITEMS.register("spray_n_pray", SprayNPrayItem::new);
+    public static final RegistryObject<SwordItem> BASEBALL_BAT = ITEMS.register("baseball_bat", BaseballBatItem::new);
 
     //Ranged
     public static final RegistryObject<Item> BLOBLOBBER = ITEMS.register("bloblobber", BloblobberItem::new);

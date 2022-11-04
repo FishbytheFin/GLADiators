@@ -86,6 +86,7 @@ public class Gladiators {
             items.add(new ItemStack(RegistryHandler.HILTLESS_HORROR.get()));
             items.add(new ItemStack(RegistryHandler.TOY_HAMMER.get()));
             items.add(new ItemStack(RegistryHandler.SPRAY_N_PRAY.get()));
+            items.add(new ItemStack(RegistryHandler.BASEBALL_BAT.get()));
             super.fillItemList(items);
         }
     };

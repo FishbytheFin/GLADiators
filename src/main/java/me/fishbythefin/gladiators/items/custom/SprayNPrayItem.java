@@ -4,7 +4,6 @@ import me.fishbythefin.gladiators.items.GladiatorsItemRarities;
 import me.fishbythefin.gladiators.util.RegistryHandler;
 import me.fishbythefin.gladiators.weapons.GladiatorsItemTier;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -32,34 +31,22 @@ public class SprayNPrayItem extends PickaxeItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
 
         if (!level.isClientSide() && interactionHand.equals(InteractionHand.MAIN_HAND)) {
-
-            //NOT WORKING AT ALL:
             //Damns all entities in a 3x3 box in front of the player
             Vec3 endOfSprayHitBox = player.getLookAngle().multiply(4.0d, 0.0d, 4.0d);//End of the hitbox for the spray
             //Adds the damned effect to all living entities near the player:
             for (Entity entity : level.getEntities(player, new AABB(player.getX(), player.getY(), player.getZ(), player.getX() + endOfSprayHitBox.x, player.getY() + 3, player.getZ() + endOfSprayHitBox.z))) {
-                player.sendSystemMessage(Component.literal("Type: " + entity.getType()));
                 if (entity instanceof LivingEntity livingEntity) {
                     livingEntity.addEffect(new MobEffectInstance(RegistryHandler.DAMNED_EFFECT.get(), 200));
                     //Particles~
-                    spawnDamningParticles(level, livingEntity);//NOT WORKING AS INTENDED
+                    spawnDamningParticles(level, livingEntity);
                 }
             }
-
-
-
-
             //Set a cooldown
             player.getCooldowns().addCooldown(this, 100);
         }
 
         return super.use(level, player, interactionHand);
     }
-
-//    @Override
-//    public boolean hurtEnemy(ItemStack itemStack, LivingEntity entity, LivingEntity attacker) {
-//        return super.hurtEnemy(itemStack, entity, attacker);
-//    }
 
     @Override
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> components, TooltipFlag flag) {

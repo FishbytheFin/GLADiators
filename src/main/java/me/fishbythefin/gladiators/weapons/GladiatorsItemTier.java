@@ -16,7 +16,9 @@ public enum GladiatorsItemTier implements Tier {
         return Ingredient.of(RegistryHandler.TOY_HAMMER.get());
     }),
     SPRAY_N_PRAY(0, -1, 1.0f, -1.0f, 420, () ->
-    {return Ingredient.of(RegistryHandler.SPRAY_N_PRAY.get());});
+    {return Ingredient.of(RegistryHandler.SPRAY_N_PRAY.get());}),
+    BASEBALL_BAT(0, -1, 1.0f, -1.0f, 420, () ->
+    {return Ingredient.of(RegistryHandler.BASEBALL_BAT.get());});
 
     private final int harvestLevel;
     private final int maxUses;
