@@ -15,6 +15,8 @@
 
   "item.gladiators.gay_ray": "Gay Ray",
   "item.gladiators.sacrificial_lamb": "Sacrificial Lamb",
+  "item.gladiators.blip_stick": "Blip Stick",
+
   "item.gladiators.infinite_pizza": "Infinite Pizza",
 
   "tooltips.gladiators.hiltless_horror": "This powerful blade is just that: a blade! With no hilt, this sword hurts its wielder almost as much as its target!",
@@ -27,6 +29,7 @@
 
   "tooltips.gladiators.gay_ray": "Shoot at an enemy to make them gay (Very distracting).",
   "tooltips.gladiators.sacrificial_lamb": "Summons a lamb to take damage for you. Yes, it is a metaphor for capitalism.",
+  "tooltips.gladiators.blip_stick": "*Teleports behind you* Nothing personal, kid.",
 
   "tooltips.gladiators.infinite_pizza": "Infinite Pizza! Yummy! Too bad it has pineapples in it...",
 
@@ -38,5 +41,6 @@
 
   "effect.gladiators.damned_effect": "Damned",
 
-  "sounds.gladiators.toy_hammer_squeak": "Squeak"
+  "sounds.gladiators.toy_hammer_squeak": "Squeak",
+  "sounds.gladiators.blip": "Blip"
 }

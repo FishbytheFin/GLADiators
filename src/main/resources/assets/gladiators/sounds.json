@@ -4,5 +4,11 @@
     "sounds": [
       "gladiators:toy_hammer_squeak"
     ]
+  },
+  "blip": {
+    "subtitle": "sounds.gladiators.blip",
+    "sounds": [
+      "gladiators:blip"
+    ]
   }
 }

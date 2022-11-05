@@ -58,6 +58,7 @@ public class RegistryHandler {
     //Support
     public static final RegistryObject<Item> GAY_RAY = ITEMS.register("gay_ray", GayRayItem::new);
     public static final RegistryObject<Item> SACRIFICIAL_LAMB = ITEMS.register("sacrificial_lamb", SacrificialLambItem::new);
+    public static final RegistryObject<Item> BLIP_STICK = ITEMS.register("blip_stick", BlipStickItem::new);
 
     //Armor
 
@@ -85,6 +86,7 @@ public class RegistryHandler {
 
     //SOUNDS:
     public static final RegistryObject<SoundEvent> TOY_HAMMER_SQUEAK = registerSoundEvent("toy_hammer_squeak");
+    public static final RegistryObject<SoundEvent> BLIP = registerSoundEvent("blip");
 
     //PARTICLES:
     public static final RegistryObject<SimpleParticleType> RAINBOW_PARTICLE = PARTICLE_TYPES.register("rainbow_particles", () -> new SimpleParticleType(true));
