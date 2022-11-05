@@ -95,6 +95,21 @@ public class GladiatorsEvents {
                 }
                 }
 
+                //Deals double damage to arial entities if they are using the spray n' pray
+                else if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem().equals(RegistryHandler.BASEBALL_BAT.get())) {
+                    //Player is holding the Baseball Bat:
+
+                        if (!event.getEntity().isOnGround()) { //Hurt entity is in the air
+                            if (!player.level.isClientSide) {
+                                event.getEntity().hurt(DamageSource.GENERIC, event.getAmount() * 2);
+                                event.getEntity().knockback(0.4d, player.getX() - event.getEntity().getX(), player.getZ() - event.getEntity().getZ());
+                            }
+                            //Plays noise from attack
+                            player.level.playSound(player, player.blockPosition(), SoundEvents.PLAYER_ATTACK_KNOCKBACK, SoundSource.PLAYERS, 1f, 1f);
+                            player.level.playSound(player, player.blockPosition(), SoundEvents.PLAYER_ATTACK_CRIT, SoundSource.PLAYERS, 1f, 1f);
+                        }
+                }
+
             }
         }
 
