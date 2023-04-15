@@ -100,6 +100,7 @@ public class Gladiators {
             //Puts the items in the creative tab in a specified order
             items.add(new ItemStack(RegistryHandler.BLOBLOBBER.get()));
             items.add(new ItemStack(RegistryHandler.BRICKMERANG.get()));
+            items.add(new ItemStack(RegistryHandler.SPLINTER.get()));
             super.fillItemList(items);
         }
     };
@@ -114,6 +115,7 @@ public class Gladiators {
             items.add(new ItemStack(RegistryHandler.GAY_RAY.get()));
             items.add(new ItemStack(RegistryHandler.SACRIFICIAL_LAMB.get()));
             items.add(new ItemStack(RegistryHandler.BLIP_STICK.get()));
+            items.add(new ItemStack(RegistryHandler.RUBBER_BAND.get()));
             super.fillItemList(items);
         }
     };

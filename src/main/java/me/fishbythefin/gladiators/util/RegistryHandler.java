@@ -54,11 +54,13 @@ public class RegistryHandler {
     //Ranged
     public static final RegistryObject<Item> BLOBLOBBER = ITEMS.register("bloblobber", BloblobberItem::new);
     public static final RegistryObject<Item> BRICKMERANG = ITEMS.register("brickmerang", BrickmerangItem::new);
+    public static final RegistryObject<Item> SPLINTER = ITEMS.register("splinter", SplinterItem::new);
 
     //Support
     public static final RegistryObject<Item> GAY_RAY = ITEMS.register("gay_ray", GayRayItem::new);
     public static final RegistryObject<Item> SACRIFICIAL_LAMB = ITEMS.register("sacrificial_lamb", SacrificialLambItem::new);
     public static final RegistryObject<Item> BLIP_STICK = ITEMS.register("blip_stick", BlipStickItem::new);
+    public static final RegistryObject<Item> RUBBER_BAND = ITEMS.register("rubber_band", RubberBandItem::new);
 
     //Armor
 

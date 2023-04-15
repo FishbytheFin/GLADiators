@@ -12,10 +12,12 @@
   "item.gladiators.brickmerang": "Brickmerang",
   "item.gladiators.upper_half_brickmerang": "Brickmerang-ish",
   "item.gladiators.lower_half_brickmerang": "Brickmerang-ish",
+  "item.gladiators.splinter": "Splinter",
 
   "item.gladiators.gay_ray": "Gay Ray",
   "item.gladiators.sacrificial_lamb": "Sacrificial Lamb",
   "item.gladiators.blip_stick": "Blip Stick",
+  "item.gladiators.rubber_band": "Rubber Band",
 
   "item.gladiators.infinite_pizza": "Infinite Pizza",
 
@@ -24,12 +26,14 @@
   "tooltips.gladiators.spray_n_pray": "Spray your enemy with, ummm something..., to damn them. Deals 2x damage to damned mobs.",
   "tooltips.gladiators.baseball_bat": "Smashing! Right click to bat away incoming projectiles. Deals 2x damage to arial mobs.",
 
-  "tooltips.gladiators.brickmerang": "Brick, Brick, Brick, Brick! It's Fun.",
   "tooltips.gladiators.bloblobber": "idk what to put here yet",
+  "tooltips.gladiators.brickmerang": "Brick, Brick, Brick, Brick! It's Fun.",
+  "tooltips.gladiators.splinter": "Splinter the earth with this \"cracked\" item.",
 
   "tooltips.gladiators.gay_ray": "Shoot at an enemy to make them gay (Very distracting).",
   "tooltips.gladiators.sacrificial_lamb": "Summons a lamb to take damage for you. Yes, it is a metaphor for capitalism.",
   "tooltips.gladiators.blip_stick": "*Teleports behind you* Nothing personal, kid.",
+  "tooltips.gladiators.rubber_band": "Weeeeeee!!",
 
   "tooltips.gladiators.infinite_pizza": "Infinite Pizza! Yummy! Too bad it has pineapples in it...",
 
